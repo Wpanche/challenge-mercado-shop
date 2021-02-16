@@ -3,20 +3,16 @@ var search = require('../external_service/serach_service')
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/items', function (req, res, next) {
-
-    search.searchProduct(req.query.q,(data)=>{
-        res.firmarJson(data);
-    })
+router.get('/items', async (req, res, next) => {
+    var data = await search.searchProduct(req.query.q)
+    res.firmarJson(data);
 
 });
 
 
-router.get('/items/:id', function (req, res, next) {
-    search.Item(req.params.id,(datos)=>{
-
-        res.firmarJson(datos);
-    })
+router.get('/items/:id', async (req, res, next) => {
+    var data = await search.Item(req.params.id)
+    res.firmarJson(data);
 });
 
 
