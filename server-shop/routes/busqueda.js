@@ -1,18 +1,23 @@
 var express = require('express');
+var search = require('../external_service/serach_service')
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
-    res.send('respond with a resource');
-});
-
-
 router.get('/items', function (req, res, next) {
-    res.send('respond with a resource');
+
+    search.searchProduct(req.query.q,(data)=>{
+        res.firmarJson(data);
+    })
+
 });
+
 
 router.get('/items/:id', function (req, res, next) {
-    res.send('respond with a resource');
+    search.Item(req.params.id,(datos)=>{
+
+        res.firmarJson(datos);
+    })
 });
+
 
 module.exports = router;
