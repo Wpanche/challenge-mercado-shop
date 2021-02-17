@@ -9,7 +9,7 @@ const firmaJson = require('./middleware/firma_autor');
 var busquedaRouter = require('./routes/busqueda');
 
 var app = express();
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '8000');
 app.set('port', port);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
