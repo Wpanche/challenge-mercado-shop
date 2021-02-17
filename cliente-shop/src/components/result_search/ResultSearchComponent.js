@@ -27,7 +27,7 @@ class ResultSearchComponent extends Component {
     getItems = () => {
         var querystring = window.location.search
         var params = new URLSearchParams(querystring)
-        axios.get(`http://localhost:3000/api/items?q=${params.get("q")}`).then((datos) => {
+        axios.get(`http://localhost:3000/api/items?q=${params.get("q") }`).then((datos) => {
 
             this.setState({
                 categories: datos.data.categories,
@@ -55,7 +55,7 @@ class ResultSearchComponent extends Component {
                                 this.state.articles.map((article, i) => {
                                     return (
 
-                                        <CardProductComponente  key={i} product={article}></CardProductComponente>
+                                        <CardProductComponente key={i} product={article}></CardProductComponente>
                                     )
                                 })
                             }
@@ -70,7 +70,6 @@ class ResultSearchComponent extends Component {
                 <div>
                     <HeaderComponent>
                     </HeaderComponent>
-
                 </div>
 
             )

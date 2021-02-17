@@ -1,0 +1,49 @@
+.content-detail {
+    display: flex;
+    padding: 20px;
+
+    .content-description {
+        img {
+            width: 35vw;
+        }
+    }
+
+    .title-description {
+        font-weight: 400;
+        margin     : 10px 0px;
+    }
+
+    .content-description {
+        font-size: 0.8rem;
+    }
+
+    .content-pay {
+        width: 50vw;
+
+        button {
+            background-color: rgb(38, 129, 189);
+            color           : white;
+            width           : 100%;
+            padding         : 5px 20px;
+            margin-top      : 5px;
+            border          : none;
+            border-radius   : 4px;
+        }
+
+        .amount-article {
+            width      : fit-content;
+            position   : relative;
+            font-size  : 2rem;
+            font-weight: 400;
+
+            .decimal-article {
+                position: absolute;
+                right: -29px;
+                top: 3px;
+                font-size: 1.2rem;
+
+            }
+        }
+
+    }
+}

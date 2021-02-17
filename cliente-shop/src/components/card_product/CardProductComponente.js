@@ -1,4 +1,5 @@
 import { React, Component } from 'react';
+import { Link } from 'react-router-dom'
 import './CardProductComponente.scss'
 import delivery from '../../assets/images/delivery.svg'
 class CardProductComponente extends Component {
@@ -12,8 +13,9 @@ class CardProductComponente extends Component {
         return (
             <div className='card'>
                 <div className='image-card'>
-                   
-                    <img src={picture}/>
+                    <Link to={location => `/items/${id}`} >
+                        <img src={picture} />
+                    </Link>
                 </div>
                 <div className='body-card'>
                     <div>$ {price.amount}
