@@ -1,14 +1,12 @@
 
 import './assets/css/App.scss';
 
-import HeaderComponent from './components/header/HeaderComponent'
-import ContentComponent from './components/content/ContentComponent'
+import RouterComponente from './RouterComponente'
 
 function App() {
   return (
     <div className="App">
-      <HeaderComponent></HeaderComponent>
-      <ContentComponent></ContentComponent>
+      <RouterComponente></RouterComponente>
 
     </div>
   );

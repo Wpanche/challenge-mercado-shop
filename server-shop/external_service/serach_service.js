@@ -25,31 +25,28 @@ function proxyMercadoLibre(path) {
     });
 }
 
-function ItemModel(item, options = { description, categories }) {
+function ItemModel(item, description) {
     try {
 
         item.decimal = (item.price % 1).toString().replace("0.", "").substr(0, 2)
-        var description = options.description
-        var categories = options.categories
+
 
         return {
 
-            "item": {
-                "id": item.id,
-                "title": item.title,
-                "price": {
-                    "currency": item.currency_id,
-                    "amount": parseInt(item.price),
-                    "decimals": item.decimal,
-                },
-                "picture": item.thumbnail,
-                "condition": item.condition,
-                "free_shipping": item.shipping.free_shipping,
-                "sold_quantity": item.sold_quantity,
-                description,
-                categories
+            "id": item.id,
+            "title": item.title,
+            "price": {
+                "currency": item.currency_id,
+                "amount": parseInt(item.price),
+                "decimals": item.decimal,
+            },
+            "picture": item.thumbnail,
+            "condition": item.condition,
+            "free_shipping": item.shipping.free_shipping,
+            "sold_quantity": item.sold_quantity,
+            description
 
-            }
+
         }
 
     } catch (e) {
@@ -73,10 +70,12 @@ async function getSearchProduct(search) {
             arrayCategories = categories.path_from_root.map(path => path.name)
         }
 
+        listItem.categories = arrayCategories
+
 
         result.results.slice(0, 4).forEach((item) => {
 
-            listItem.items.push(ItemModel(item, { categories: arrayCategories }))
+            listItem.items.push(ItemModel(item))
         })
 
         return listItem;
@@ -90,9 +89,10 @@ async function getSearchProduct(search) {
 
 async function getItem(id, callback) {
     try {
-        
+
         var resultItem = await Promise.all([getItemMercadoLibre(id), getDescriptionItemMercadoLibre(id)])
-        itemResult = ItemModel(resultItem[0], { description: resultItem[1].plain_text || "" })
+        var itemResult = {}
+        itemResult.item = ItemModel(resultItem[0], resultItem[1].plain_text || "")
         return itemResult;
 
     } catch (e) {

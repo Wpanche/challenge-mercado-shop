@@ -2,22 +2,32 @@ import { React, Component } from 'react';
 import './CardProductComponente.scss'
 import delivery from '../../assets/images/delivery.svg'
 class CardProductComponente extends Component {
+
+
     render() {
+        const { free_shipping, id, picture, title, price } = this.props.product;
+
+
+
         return (
             <div className='card'>
                 <div className='image-card'>
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_805950-MCO40352919808_012020-V.webp" />
+                   
+                    <img src={picture}/>
                 </div>
                 <div className='body-card'>
-                    <div>$1.980
+                    <div>$ {price.amount}
                         <span>
-                            <img className='delivery-icon' src={delivery}></img>
+                            {
+                                free_shipping &&
+                                <img className='delivery-icon' src={delivery}></img>
+                            }
                         </span>
                     </div>
-                    <div class='description'>Celular iPhone SE 2020 64gb Chip A13</div>
+                    <div className='description'>{title}</div>
                 </div>
                 <div className='location-card'>
-                    <div>Bogotá</div>
+                    <div> {price.currency}</div>
                 </div>
             </div>
         );

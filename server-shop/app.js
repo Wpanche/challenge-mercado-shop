@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var cors = require('cors')
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -10,6 +11,15 @@ var busquedaRouter = require('./routes/busqueda');
 
 var app = express();
 var port = normalizePort(process.env.PORT || '8000');
+
+var corsOptions = {
+  origin: 'http://localhost:3001',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+app.use(cors(corsOptions), function (req, res, next) {
+ next()
+})
+
 app.set('port', port);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

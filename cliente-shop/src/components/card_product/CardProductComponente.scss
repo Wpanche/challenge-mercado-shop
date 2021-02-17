@@ -1,20 +1,24 @@
 .card {
-    display      : flex;
-    padding      : 10px 0px;
-  
+    display: flex;
+    padding: 10px 0px;
+
 
     .image-card {
-        flex: 1 2 1 auto;
+        width        : 15vw;
+        text-align   : center;
+        border-radius: 10px;
+        padding      : 1px;
+        cursor       : pointer;
 
         img {
-            width: 15vw;
+            height: 20vh;
         }
     }
 
     .body-card {
-
+        width    : 30vw;
         padding  : 10px;
-        flex     : 1 2  auto;
+        flex     : 1 2 auto;
         font-size: 1.5rem;
 
         div {
@@ -22,7 +26,7 @@
         }
 
         .description {
-            font-size : 1rem;
+            font-size: 1rem;
         }
 
         .delivery-icon {
@@ -38,7 +42,7 @@
         margin-top: 15px;
         font-size : 0.8rem;
         padding   : 10px;
-        flex      : 1 2  auto;
+        flex      : 1 2 auto;
     }
 
 

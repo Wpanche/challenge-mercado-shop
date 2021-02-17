@@ -6,26 +6,19 @@ class Breadcrumb extends Component {
         return (
             <div className='content-bread-cromb'>
                 <ul>
-                    <li>
-                        Electronica, Audio y video
-                        <span><img src={next} /></span>
-                    </li>
-                    <li>
-                        Ipod
-                        <span><img src={next} /></span>
-                    </li>
-                    <li>
-                        Reproductores
-                        <span><img src={next} /></span>
-                    </li>
-                    <li>
-                        Ipod touch
-                        <span><img src={next} /></span>
-                    </li>
-                    <li>
-                        32 GB
-                        <span><img src={next} /></span>
-                    </li>
+
+                    {
+
+                        this.props.categories.map((category) => {
+                            return (
+                                <li>
+                                    {category}
+                                    <span><img src={next} /></span>
+                                </li>
+
+                            )
+                        })
+                    }
                 </ul>
             </div>
         );
