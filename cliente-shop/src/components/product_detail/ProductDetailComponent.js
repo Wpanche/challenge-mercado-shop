@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import HeaderComponent from '../header/HeaderComponent'
 import DataSheetComponent from '../../components/data_sheet/DataSheetComponent'
+import BreadcrumbComponente from '../../components/breadcrumb/BreadcrumbComponente'
 
 class ProductDetailComponent extends Component {
     componentWillMount() {
@@ -18,7 +19,7 @@ class ProductDetailComponent extends Component {
                 article: datos.data.item,
                 status: 'success'
             })
-            console.log(this.state)
+
         })
     }
 
@@ -28,6 +29,7 @@ class ProductDetailComponent extends Component {
                 <HeaderComponent>
                 </HeaderComponent>
                 <div className='content'>
+                    <BreadcrumbComponente></BreadcrumbComponente>
                     {this.state?.article !== undefined &&
 
                         <DataSheetComponent article={this.state.article}></DataSheetComponent>

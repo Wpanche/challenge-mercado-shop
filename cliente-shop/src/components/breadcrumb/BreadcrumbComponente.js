@@ -1,17 +1,22 @@
 import { React, Component } from 'react';
 import './BreadcrumbComponente.scss'
 import next from '../../assets/images/next.svg'
+import { connect } from 'react-redux';
 class BreadcrumbComponente extends Component {
+    componentWillMount() {
+        console.log(this.props)
+    }
     render() {
         return (
             <div className='content-bread-cromb'>
                 <ul>
 
                     {
+                        
 
-                        this.props.categories.map((category) => {
+                        this.props.categories.map((category, i) => {
                             return (
-                                <li>
+                                <li key={i}>
                                     {category}
                                     <span><img src={next} /></span>
                                 </li>
@@ -25,4 +30,8 @@ class BreadcrumbComponente extends Component {
     }
 }
 
-export default BreadcrumbComponente;
+const mapStateToProps = state => ({
+    categories: state.products.categories,
+});
+
+export default connect(mapStateToProps, {})(BreadcrumbComponente);

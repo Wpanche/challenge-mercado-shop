@@ -1,14 +1,18 @@
 
 import './assets/css/App.scss';
-
+import { Provider } from 'react-redux';
 import RouterComponente from './RouterComponente'
+import store from './Provider/store'
 
 function App() {
   return (
-    <div className="App">
-      <RouterComponente></RouterComponente>
+    <Provider store={store}>
 
-    </div>
+      <div className="App">
+        <RouterComponente></RouterComponente>
+
+      </div>
+    </Provider>
   );
 }
 

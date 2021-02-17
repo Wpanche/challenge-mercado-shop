@@ -1,47 +1,20 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+
 import HeaderComponent from '../header/HeaderComponent'
 import CardProductComponente from '../card_product/CardProductComponente'
 import BreadcrumbComponente from '../../components/breadcrumb/BreadcrumbComponente'
+import { connect } from 'react-redux';
 
 import './ResultSearchComponent.scss'
+
 
 
 class ResultSearchComponent extends Component {
 
 
-    componentWillMount() {
-
-        this.setState({
-            articles: {
-                categories: []
-            }
-        })
-    }
-    componentWillReceiveProps() {
-
-        this.getItems()
-
-    }
-
-    getItems = () => {
-        var querystring = window.location.search
-        var params = new URLSearchParams(querystring)
-        axios.get(`http://localhost:3000/api/items?q=${params.get("q") }`).then((datos) => {
-
-            this.setState({
-                categories: datos.data.categories,
-                articles: datos.data.items,
-                status: 'success'
-            })
-            console.log(datos.data)
-        })
-    }
-
-
     render() {
 
-        if (this.state?.articles?.length > 0) {
+        if (this.props?.articles?.length > 0) {
 
             return (
                 <div>
@@ -49,10 +22,10 @@ class ResultSearchComponent extends Component {
                     </HeaderComponent>
 
                     <div className='content'>
-                        <BreadcrumbComponente categories={this.state.categories}></BreadcrumbComponente>
+                        <BreadcrumbComponente></BreadcrumbComponente>
                         <div className='content-card'>
                             {
-                                this.state.articles.map((article, i) => {
+                                this.props.articles.map((article, i) => {
                                     return (
 
                                         <CardProductComponente key={i} product={article}></CardProductComponente>
@@ -77,4 +50,13 @@ class ResultSearchComponent extends Component {
     }
 }
 
-export default ResultSearchComponent;
+
+
+const mapStateToProps = state => ({
+    products: state.products,
+    articles: state.products.articles,
+    categories: state.products.categories,
+
+});
+
+export default connect(mapStateToProps, {})(ResultSearchComponent);

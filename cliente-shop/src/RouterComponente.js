@@ -10,9 +10,9 @@ class RouterComponente extends Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="/" component={SearchProductComponent}></Route>
-                    <Route exact path="/items" component={ResultSearchComponent}></Route>
-                    <Route exact path="/items/:id" component={ProductDetailComponent}></Route>
+                    <Route exact path="/" render={(props) => <SearchProductComponent {...props} title="Home" />} ></Route>
+                    <Route exact path="/items" render={(props) => <ResultSearchComponent {...props} title="Result search" />}></Route>
+                    <Route exact path="/items/:id"  render={(props) => <ProductDetailComponent {...props} title="Product detail" />} ></Route>
                 </Switch>
             </BrowserRouter>
         )
