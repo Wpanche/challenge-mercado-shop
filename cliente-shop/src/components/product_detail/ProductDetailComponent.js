@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import HeaderComponent from '../header/HeaderComponent'
-import Breadcrumb from '../../components/breadcrumb/Breadcrumb'
 import DataSheetComponent from '../../components/data_sheet/DataSheetComponent'
 
 class ProductDetailComponent extends Component {

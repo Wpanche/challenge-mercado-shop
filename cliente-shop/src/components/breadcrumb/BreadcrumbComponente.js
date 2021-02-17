@@ -1,7 +1,7 @@
 import { React, Component } from 'react';
-import './Breadcrumb.scss'
+import './BreadcrumbComponente.scss'
 import next from '../../assets/images/next.svg'
-class Breadcrumb extends Component {
+class BreadcrumbComponente extends Component {
     render() {
         return (
             <div className='content-bread-cromb'>
@@ -25,4 +25,4 @@ class Breadcrumb extends Component {
     }
 }
 
-export default Breadcrumb;
+export default BreadcrumbComponente;

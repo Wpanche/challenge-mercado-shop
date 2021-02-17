@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import HeaderComponent from '../header/HeaderComponent'
 import CardProductComponente from '../card_product/CardProductComponente'
-import Breadcrumb from '../../components/breadcrumb/Breadcrumb'
+import BreadcrumbComponente from '../../components/breadcrumb/BreadcrumbComponente'
 
 import './ResultSearchComponent.scss'
 
@@ -49,7 +49,7 @@ class ResultSearchComponent extends Component {
                     </HeaderComponent>
 
                     <div className='content'>
-                        <Breadcrumb categories={this.state.categories}></Breadcrumb>
+                        <BreadcrumbComponente categories={this.state.categories}></BreadcrumbComponente>
                         <div className='content-card'>
                             {
                                 this.state.articles.map((article, i) => {

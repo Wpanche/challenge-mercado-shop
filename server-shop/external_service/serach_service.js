@@ -101,9 +101,9 @@ async function getItem(id, callback) {
 
 }
 
-getItemMercadoLibre = (idItem) => proxyMercadoLibre(`items/${idItem}`);
+const getItemMercadoLibre = (idItem) => proxyMercadoLibre(`items/${idItem}`);
 
-getDescriptionItemMercadoLibre = (idItem) => proxyMercadoLibre(`items/${idItem}/description`);
+const getDescriptionItemMercadoLibre = (idItem) => proxyMercadoLibre(`items/${idItem}/description`);
 
 
 
