@@ -52,7 +52,7 @@ const SearchBarComponente = ({ setItems }) => {
             <img src={logo} className="logo-shop" alt="logo" />
             <div className='search-bar'>
                 <input type='text' placeholder='Nunca dejes de buscar' ref={searchRef} className='input-search' onInput={setSearchText} onKeyPress={navigateToListItemsKeyPres.bind(this)} />
-
+                
                 <img src={loupe} className="loupe-search" alt="loupe" onClick={navigateToListItems} />
 
             </div>
