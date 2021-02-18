@@ -45,6 +45,15 @@ En el directorio server-shop realizar la instalación de dependencias usando el 
 ```
 npm install
 ```
+
+para iniciar la aplicación usamos el siguiente comando en el directorio directorio **server-shop**
+
+```
+npm start
+```
+ 
+Para ambiente de desarrollo el puerto configurado en las variables de entorno corresponde a la siguiente url http://localhost:8000
+
 # Capa de presentación 
 ### Estructura del proyecto
  
@@ -73,13 +82,9 @@ npm install
 ```
  
  
-para iniciar la aplicación usamos el siguiente comando en el directorio directorio cliente-shop
+
  
-```
-npm start
-```
- 
-Para ambiente de desarrollo el puerto configurado en las variables de entorno corresponde a la siguiente url http://localhost:8000
+
  
 ##  Variables de entorno
  
