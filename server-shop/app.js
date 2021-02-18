@@ -6,14 +6,19 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const normalizePort = require('normalize-port');
 const firmaJson = require('./middleware/firma_autor');
-
+require('dotenv').config();
 var busquedaRouter = require('./routes/busqueda');
+
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
 var app = express();
 var port = normalizePort(process.env.PORT || '3000');
 
+
 var corsOptions = {
-  origin: process.env.DOMAIN_CLIENT,
+  origin: process.env.CORS_ALLOW,
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 app.use(cors(corsOptions), function (req, res, next) {

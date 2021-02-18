@@ -22,5 +22,5 @@ services:
     environment:
       - PORT=8000
       - NODE_ENV=development
-      - DOMAIN_CLIENT=*
+      - CORS_ALLOW=*
       - EXTERNAL_SERVICES=https://api.mercadolibre.com
