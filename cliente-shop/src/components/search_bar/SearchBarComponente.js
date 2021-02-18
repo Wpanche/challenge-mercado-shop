@@ -1,6 +1,6 @@
 import './SearchBarComponente.scss'
-import React, { Component } from 'react';
-import { Link, useHistory } from 'react-router-dom'
+import React from 'react';
+import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import loupe from '../../assets/images/loupe.svg'
 import logo from '../../assets/images/logo.png'
@@ -28,7 +28,13 @@ const SearchBarComponente = ({ setItems }) => {
         if (searchText === "")
             return
 
-        axios.get(`http://localhost:3000/api/items?q=${searchText}`).then((datos) => {
+        setItems({
+            categories: [],
+            articles: [],
+            status: ''
+        })
+
+        axios.get(`${process.env.REACT_APP_EXTERNAL_SERVICES}/api/items?q=${searchText}`).then((datos) => {
 
             setItems({
                 categories: datos.data.categories,
@@ -52,7 +58,7 @@ const SearchBarComponente = ({ setItems }) => {
             <img src={logo} className="logo-shop" alt="logo" />
             <div className='search-bar'>
                 <input type='text' placeholder='Nunca dejes de buscar' ref={searchRef} className='input-search' onInput={setSearchText} onKeyPress={navigateToListItemsKeyPres.bind(this)} />
-                
+
                 <img src={loupe} className="loupe-search" alt="loupe" onClick={navigateToListItems} />
 
             </div>

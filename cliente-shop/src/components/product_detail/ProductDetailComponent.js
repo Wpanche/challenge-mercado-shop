@@ -13,7 +13,7 @@ class ProductDetailComponent extends Component {
 
     getItems = () => {
 
-        axios.get(`http://localhost:3000/api/items/${this.props.match.params.id}`).then((datos) => {
+        axios.get(`${process.env.REACT_APP_EXTERNAL_SERVICES}/api/items/${this.props.match.params.id}`).then((datos) => {
 
             this.setState({
                 article: datos.data.item,

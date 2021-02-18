@@ -1,5 +1,5 @@
 var request = require('request');
-var urlExternalService = "https://api.mercadolibre.com"
+var urlExternalService = process.env.EXTERNAL_SERVICES
 
 
 
