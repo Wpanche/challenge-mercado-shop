@@ -1,0 +1,26 @@
+
+version: '3.7'
+
+services:
+
+  react-frontend:
+    container_name: react-frontend
+    build:
+      context: ./cliente-shop
+      dockerfile: Dockerfile
+    ports:
+      - '80:80'
+    environment:      
+      - REACT_APP_EXTERNAL_SERVICES=http://localhost:8000
+  server-shop:
+    container_name: server-shop
+    build:
+      context: ./server-shop
+      dockerfile: Dockerfile
+    ports:
+      - '8000:8000'
+    environment:
+      - PORT=8000
+      - NODE_ENV=development
+      - CORS_ALLOW=*
+      - EXTERNAL_SERVICES=https://api.mercadolibre.com

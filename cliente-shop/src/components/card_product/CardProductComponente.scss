@@ -1,0 +1,49 @@
+.card {
+    display: flex;
+    padding: 10px 0px;
+
+
+    .image-card {
+        width        : 15vw;
+        text-align   : center;
+        border-radius: 10px;
+        padding      : 1px;
+        cursor       : pointer;
+
+        img {
+            height: 20vh;
+        }
+    }
+
+    .body-card {
+        width    : 30vw;
+        padding  : 10px;
+        flex     : 1 2 auto;
+        font-size: 1.5rem;
+
+        div {
+            margin-top: 5px;
+        }
+
+        .description {
+            font-size: 1rem;
+        }
+
+        .delivery-icon {
+            width           : 12px;
+            background-color: #1cd760;
+            margin          : 0px 5px;
+            border-radius   : 10px;
+            padding         : 2px;
+        }
+    }
+
+    .location-card {
+        margin-top: 15px;
+        font-size : 0.8rem;
+        padding   : 10px;
+        flex      : 1 2 auto;
+    }
+
+
+}
